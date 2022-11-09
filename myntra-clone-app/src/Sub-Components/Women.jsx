@@ -7,7 +7,7 @@
 function Women(){
     return (
         <div>
-            <p>WOMEN</p>
+            <h4>WOMEN</h4>
         </div>
     )
 }

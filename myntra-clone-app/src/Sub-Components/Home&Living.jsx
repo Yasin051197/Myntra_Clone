@@ -7,7 +7,7 @@
 export default function Home_Living(){
     return (
         <div>
-            <p>HOME & LIVING</p>
+            <h4>HOME & LIVING</h4>
         </div>
     )
 }

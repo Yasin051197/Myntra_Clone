@@ -15,7 +15,7 @@ import Women from "../Sub-Components/Women"
 
 function Navbar(){
     return (
-        <div style={{fontWeight:"bold",padding:"10px",border:"1px solid red",display:"flex",justifyContent:"space-around",margin:"auto"}}>
+        <div style={{padding:"10px",border:"1px solid red",display:"flex",justifyContent:"space-around",margin:"auto"}}>
             <Logo />
             <Men />
             <Women />

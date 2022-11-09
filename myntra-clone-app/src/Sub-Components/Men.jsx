@@ -5,7 +5,7 @@
 export default function Men(){
     return (
         <div>
-            <p>MEN</p>
+            <h4>MEN</h4>
         </div>
     )
 }

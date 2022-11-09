@@ -7,7 +7,7 @@
 export default function Kids(){
     return (
         <div>
-            <p>KIDS</p>
+            <h4>KIDS</h4>
         </div>
     )
 }

@@ -7,7 +7,7 @@
 export default function Beuty(){
     return (
         <div>
-            <p>BEUTY</p>
+            <h4>BEAUTY</h4>
         </div>
     )
 }
