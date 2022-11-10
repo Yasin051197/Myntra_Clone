@@ -1,45 +1,76 @@
-import React from "react"
-import HeroSlider, {Slide} from "hero-slider"
+import React, { useEffect, useState } from "react"
+const SliderData=[
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/11/8/93156ec1-1d4e-417c-8e17-ba56143d4a481667927056281-PreBuzz-Desktop-Banner.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/8/1/70a3d1a4-f16a-45ca-9bb4-64dc2315352b1659297228544-Desktop-Banners_unisex-with-kids.jpg",   
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/84b6a214-9eb3-49eb-9f9d-72cec56ec5d71659019908592-Indian-Wear_DK--1-.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/6107d28b-2bcb-44e6-9743-655b54550b8f1659020199598-Workwear_Desk--1-.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/28/0174e4d7-448c-4746-8572-69461ad5be101659020268081-Tops---Tees_Desk.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/b656a7f4-4688-4997-bb7c-54b78793981e1658752386588-Western-Wear_Desk.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/179e278f-77ee-44c2-bf39-9f00b0cd08e01658752429301-Handbags_Desk.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/7/25/9be788ff-39a4-4214-99d0-fc97505aae5a1658752545685-USPA_Desk_Banner.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/5/31/4031994d-9092-4aa7-aea1-f52f2ae5194f1654006594976-Activewear_DK.jpg",
+   },
+   {
+    image:"https://assets.myntassets.com/f_webp,w_980,c_limit,fl_progressive,dpr_2.0/assets/images/2022/6/27/53b4daed-cd2c-4111-86c5-14f737eceb351656325318973-Handbags_Desk.jpg",
+   }
+]
 
-const image1="https://img.freepik.com/free-photo/wide-angle-shot-single-tree-growing-clouded-sky-during-sunset-surrounded-by-grass_181624-22807.jpg"
- const    image2="https://webneel.com/wallpaper/sites/default/files/images/08-2018/2-nature-wallpaper-grass.jpg"
-   const  image3="https://webneel.com/wallpaper/sites/default/files/images/08-2018/3-nature-wallpaper-mountain.jpg"
-   const  image4="https://images7.alphacoders.com/411/411820.jpg"
-
-export default function  SliderData(){
+export default function  Sliderdata(){
+    const autoScroll=true;
+    let slideInterval;
+    let intervalTime=7000;
+    const [currentSlide,setCurrentSlide]=useState(0)
+    const sliderLength=SliderData.length;
+    const nextSlide=()=>
+    {
+        setCurrentSlide(currentSlide===sliderLength-1 ? 0 : currentSlide + 1)
+    }
+    useEffect(()=>
+    {
+        setCurrentSlide(0)
+    },[])
+    useEffect(()=>{
+        if(autoScroll)
+        {
+            auto()
+        }
+        return ()=>clearInterval(slideInterval)
+    },[currentSlide])
+    const auto=()=>
+    {
+        slideInterval=setInterval(nextSlide,intervalTime)
+    }
     return (
-        <HeroSlider
-        slidingAnimation="left_to_right"
-        >
-            <Slide 
-            background={
-                {
-                    backgroundImageSrc:image1,
-                }
-            }
-            />
-             <Slide 
-            background={
-                {
-                    backgroundImageSrc:image2,
-                }
-            }
-            />
-             <Slide 
-            background={
-                {
-                    backgroundImageSrc:image3,
-                }
-            }
-            />
-             <Slide 
-            background={
-                {
-                    backgroundImageSrc:image4,
-                }
-            }
-            />
-        </HeroSlider>
+        <div style={{marginTop:"40px"}} className="content">
+            {SliderData.map((el,index)=>
+            {
+                return(
+                    <div  className={index===currentSlide?"slide current":"slide"} key={index}>
+                        {index===currentSlide && (
+                            
+                            <img style={{width:"100%"}} src={el.image}alt="slide"/>
+                        )}
+                    </div>
+                )
+            })}
+        </div>
     )
   
 }
