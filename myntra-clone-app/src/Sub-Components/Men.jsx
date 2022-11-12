@@ -1,11 +1,15 @@
 
-
+import Hoverbox from "../HoverBox/Hover"
+import "./Mens.css"
 
 
 export default function Men(){
     return (
-        <div>
-            <h4>MEN</h4>
+        <div className="mens_div">
+            <h4 className="mens">MEN</h4>
+            <div className="Hover" style={{display:"none"}}>
+            <Hoverbox />
+            </div>
         </div>
     )
 }
