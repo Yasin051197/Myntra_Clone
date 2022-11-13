@@ -7,9 +7,7 @@ export default function Men(){
     return (
         <div className="mens_div">
             <h4 className="mens">MEN</h4>
-            <div className="Hover" style={{display:"none"}}>
             <Hoverbox />
-            </div>
         </div>
     )
 }

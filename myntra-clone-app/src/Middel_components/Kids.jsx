@@ -2,25 +2,24 @@
 
 
 import { useState } from "react"
-import Middle from "../components/Middle"
 import data from "../db.json"
 let clothing=data.clothing
 console.log(clothing)
 
-function Mens()
+function Childs()
 {
-  const [mensdata,setMensdata]=useState([])
+  const [childsdata,setChildsdata]=useState([])
   let count=0;
   clothing.map((el)=>
                 {
-                  if(el.category==="Mens")
+                  if(el.category==="Child")
                   {
                     let length=el.images.length
                     if(length===8)
                     {
                       if(count<24)
                       {
-                        mensdata.push(el.images)
+                        childsdata.push(el.images)
                       }
                       count++
                     }
@@ -29,9 +28,9 @@ function Mens()
     return (
        <div>
         {
-          mensdata.map(image=><img style={{border:"5px solid gold",margin:"5px",width:"10%",height:"10%"}} key={image.id} src={image}/>)}
+          childsdata.map(image=><img style={{border:"5px solid gold",margin:"5px",width:"10%",height:"10%"}} key={image.id} src={image}/>)}
         
         </div>
     )
 }
-export default Mens
+export default Childs

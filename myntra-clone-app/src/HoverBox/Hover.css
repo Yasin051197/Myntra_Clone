@@ -1,6 +1,17 @@
 
 .hoverbox{
+    margin-top: 25px;
     display: grid;
     grid-template-columns: repeat(5,1fr);
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    position: fixed;
+    z-index: 20;
+    background-color: white;
+}
+.hoverbox h4{
+    color: red;
+}
+p:hover
+{
+    font-weight: bold;
 }
