@@ -5,7 +5,7 @@ import { useState } from "react"
 import Middle from "../components/Middle"
 import data from "../db.json"
 let clothing=data.clothing
-console.log(clothing)
+//console.log(clothing)
 
 function Mens()
 {
@@ -26,10 +26,15 @@ function Mens()
                     }
                   }
                 })
+
+     const handleretrive=()=>
+     {
+      console.log("click")
+     }           
     return (
        <div>
         {
-          mensdata.map(image=><img style={{border:"5px solid gold",margin:"5px",width:"10%",height:"10%"}} key={image.id} src={image}/>)}
+          mensdata.map(image=><img onClick={handleretrive} style={{border:"5px solid gold",margin:"5px",width:"10%",height:"10%"}} key={image.id} src={image}/>)}
         
         </div>
     )

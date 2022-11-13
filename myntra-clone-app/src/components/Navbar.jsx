@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Bag from "../Sub-Components/Bag"
 import Beuty from "../Sub-Components/Beuty"
 import Home_Living from "../Sub-Components/Home&Living"
